@@ -1,32 +1,26 @@
 package net.cilution.recipe.controllers;
 
-import net.cilution.recipe.domain.Category;
-import net.cilution.recipe.domain.UnitOfMeasure;
-import net.cilution.recipe.repositories.CategoryRepository;
-import net.cilution.recipe.repositories.UnitOfMeasureRepository;
+import net.cilution.recipe.domain.Recipe;
+import net.cilution.recipe.services.RecipeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class IndexController {
 
-    private CategoryRepository categoryRepository;
-    private UnitOfMeasureRepository unitOfMeasureRepository;
+    private final RecipeService recipeService;
 
-    public IndexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
+    public IndexController(RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
     @RequestMapping({"", "/", "/index"})
-    public String getIndexPage() {
-        Optional<Category> category = categoryRepository.findByDescription("Fast Food");
-        Optional<UnitOfMeasure> unit = unitOfMeasureRepository.findByDescription("Cup");
-
-        System.out.println(category.get().getId());
-        System.out.println(unit.get().getId());
+    public String getIndexPage(Model model) {
+        Set<Recipe> recipes = recipeService.getRecipes();
+        System.out.println(recipes.size());
+        model.addAttribute("recipes", recipes);
 
         return "index";
     }
