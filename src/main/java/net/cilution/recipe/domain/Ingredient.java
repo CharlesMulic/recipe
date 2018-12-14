@@ -27,6 +27,12 @@ public class Ingredient {
         this.setDescription(description);
         this.setAmount(amount);
         this.setUom(unit);
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unit) {
+        this.setDescription(description);
+        this.setAmount(amount);
+        this.setUom(unit);
         this.setRecipe(recipe);
     }
 
