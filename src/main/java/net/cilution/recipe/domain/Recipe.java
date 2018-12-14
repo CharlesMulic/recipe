@@ -17,7 +17,6 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-//    private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
@@ -27,6 +26,17 @@ public class Recipe {
 
     @OneToOne(cascade = CascadeType.ALL) // deleting recipe will delete notes
     private Notes notes;
+
+    @ManyToMany
+    // specify a single table for the relationship, recipe_category
+    // specify that we join this object's data on recipe_id
+    // specify that we join Category's data on category_id
+    @JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
+
+    @Enumerated(EnumType.STRING)
+    // ORDINAL is default, persisted as 1,2,3. String values can work better with enum structure changes
+    private Difficulty difficulty;
 
     public Long getId() {
         return id;
@@ -114,5 +124,21 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
