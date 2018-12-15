@@ -1,5 +1,6 @@
 package net.cilution.recipe.bootstrap;
 
+import lombok.extern.slf4j.Slf4j;
 import net.cilution.recipe.domain.*;
 import net.cilution.recipe.repositories.CategoryRepository;
 import net.cilution.recipe.repositories.RecipeRepository;
@@ -7,6 +8,7 @@ import net.cilution.recipe.repositories.UnitOfMeasureRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Slf4j
 @Component
 public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -30,8 +33,10 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Recipes saved");
     }
 
     private List<Recipe> getRecipes() {
@@ -75,6 +80,8 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
             throw new RuntimeException("Expected UOM Not Found");
         }
 
+        log.debug("Verified units of measure");
+
         //get optionals
         UnitOfMeasure eachUom = eachUomOptional.get();
         UnitOfMeasure tableSpoonUom = tableSpoonUomOptional.get();
@@ -98,6 +105,8 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
 
         Category americanCategory = americanCategoryOptional.get();
         Category mexicanCategory = mexicanCategoryOptional.get();
+
+        log.debug("Verified categories");
 
         //Yummy Guac
         Recipe guacRecipe = new Recipe();
