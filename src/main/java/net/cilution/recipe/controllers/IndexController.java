@@ -22,7 +22,6 @@ public class IndexController {
     public String getIndexPage(Model model) {
         log.debug("Getting index page");
         Set<Recipe> recipes = recipeService.getRecipes();
-        System.out.println(recipes.size());
         model.addAttribute("recipes", recipes);
 
         return "index";
