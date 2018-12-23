@@ -1,7 +1,6 @@
 package net.cilution.recipe.converters;
 
-import net.cilution.commands.NotesCommand;
-import net.cilution.converters.NotesCommandToNotes;
+import net.cilution.recipe.commands.NotesCommand;
 import net.cilution.recipe.domain.Notes;
 import org.junit.Before;
 import org.junit.Test;

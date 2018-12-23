@@ -1,7 +1,6 @@
 package net.cilution.recipe.converters;
 
-import net.cilution.commands.RecipeCommand;
-import net.cilution.converters.*;
+import net.cilution.recipe.commands.RecipeCommand;
 import net.cilution.recipe.domain.*;
 import org.junit.Before;
 import org.junit.Test;

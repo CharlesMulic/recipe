@@ -1,7 +1,7 @@
-package net.cilution.converters;
+package net.cilution.recipe.converters;
 
 import lombok.Synchronized;
-import net.cilution.commands.NotesCommand;
+import net.cilution.recipe.commands.NotesCommand;
 import net.cilution.recipe.domain.Notes;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;

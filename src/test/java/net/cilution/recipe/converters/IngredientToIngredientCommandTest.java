@@ -1,8 +1,6 @@
 package net.cilution.recipe.converters;
 
-import net.cilution.commands.IngredientCommand;
-import net.cilution.converters.IngredientToIngredientCommand;
-import net.cilution.converters.UnitOfMeasureToUnitOfMeasureCommand;
+import net.cilution.recipe.commands.IngredientCommand;
 import net.cilution.recipe.domain.Ingredient;
 import net.cilution.recipe.domain.Recipe;
 import net.cilution.recipe.domain.UnitOfMeasure;

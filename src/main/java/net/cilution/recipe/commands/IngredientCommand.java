@@ -1,4 +1,4 @@
-package net.cilution.commands;
+package net.cilution.recipe.commands;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

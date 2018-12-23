@@ -1,4 +1,4 @@
-package net.cilution.commands;
+package net.cilution.recipe.commands;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,11 +7,10 @@ import lombok.Setter;
 /**
  * Created by jt on 6/21/17.
  */
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
-public class NotesCommand {
+public class CategoryCommand {
     private Long id;
-    private String recipeNotes;
-
+    private String description;
 }

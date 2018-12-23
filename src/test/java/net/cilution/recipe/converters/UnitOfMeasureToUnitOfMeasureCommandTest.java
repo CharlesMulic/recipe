@@ -1,7 +1,6 @@
 package net.cilution.recipe.converters;
 
-import net.cilution.commands.UnitOfMeasureCommand;
-import net.cilution.converters.UnitOfMeasureToUnitOfMeasureCommand;
+import net.cilution.recipe.commands.UnitOfMeasureCommand;
 import net.cilution.recipe.domain.UnitOfMeasure;
 import org.junit.Before;
 import org.junit.Test;

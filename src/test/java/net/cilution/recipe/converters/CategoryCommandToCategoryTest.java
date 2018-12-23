@@ -1,7 +1,6 @@
 package net.cilution.recipe.converters;
 
-import net.cilution.commands.CategoryCommand;
-import net.cilution.converters.CategoryCommandToCategory;
+import net.cilution.recipe.commands.CategoryCommand;
 import net.cilution.recipe.domain.Category;
 import org.junit.Before;
 import org.junit.Test;

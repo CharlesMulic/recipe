@@ -1,10 +1,9 @@
 package net.cilution.recipe.converters;
 
-import net.cilution.commands.CategoryCommand;
-import net.cilution.commands.IngredientCommand;
-import net.cilution.commands.NotesCommand;
-import net.cilution.commands.RecipeCommand;
-import net.cilution.converters.*;
+import net.cilution.recipe.commands.CategoryCommand;
+import net.cilution.recipe.commands.IngredientCommand;
+import net.cilution.recipe.commands.NotesCommand;
+import net.cilution.recipe.commands.RecipeCommand;
 import net.cilution.recipe.domain.Difficulty;
 import net.cilution.recipe.domain.Recipe;
 import org.junit.Before;
